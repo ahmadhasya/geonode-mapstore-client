@@ -20,6 +20,8 @@ const ResourceStatus = ({ resource = {} }) => {
     const {
         isApproved,
         isPublished,
+        isUploadRejected,
+        isPublishRejected,
         isProcessing,
         isCopying,
         isDeleting,
@@ -27,16 +29,18 @@ const ResourceStatus = ({ resource = {} }) => {
     } = getResourceStatuses(resource);
 
     const getTitle = (status) => {
-        const { isApproved: approved, isPublished: published } = status;
+        const { isApproved: approved, isPublished: published, isUploadRejected: upload_rejected, isPublishRejected: publish_rejected } = status;
 
-        if (!approved && published) {
-            return <Message msgId="gnhome.pendingApproval" />;
-        }
-        if (!approved && !published) {
-            return <Message msgId="gnhome.unApprovedunPublished" />;
-        }
-        if (!published && !approved) {
-            return <Message msgId="gnhome.unpublished" />;
+        if(upload_rejected){
+            return <span className="gn-resource-status gn-resource-status-danger">Upload Rejected</span>;
+        }else if(publish_rejected){
+            return <span className="gn-resource-status gn-resource-status-danger">Publish Rejected</span>;
+        }else if (!approved && !published) {
+            return <span className="gn-resource-status gn-resource-status-warning">Need Approval</span>;
+        }else if (approved && !published) {
+            return <span className="gn-resource-status gn-resource-status-success">Approved</span>;
+        }else if (approved && published) {
+            return <span className="gn-resource-status gn-resource-status-success">Published</span>;
         }
 
         return '';
@@ -46,10 +50,8 @@ const ResourceStatus = ({ resource = {} }) => {
         ? (
             <p className="gn-resource-status-text">
                 {
-                    (!isProcessing && (!isApproved || !isPublished)) &&
-                        <ButtonWithTooltip variant="default" className="gn-resource-status gn-status-button" tooltip={getTitle({ isApproved, isPublished })} style={{ marginRight: (isDeleting || isDeleted || isCopying) && '0.4rem' }} tooltipPosition="top">
-                            <FaIcon  name="info-circle" className="gn-resource-status-pending" />
-                        </ButtonWithTooltip>
+                    (!isProcessing) &&
+                        getTitle({ isApproved, isPublished, isUploadRejected, isPublishRejected })
                 }
                 {isDeleting && <span className="gn-resource-status gn-resource-status-danger" >
                     <Message msgId="gnviewer.deleting" />

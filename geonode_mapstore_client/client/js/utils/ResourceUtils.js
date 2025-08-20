@@ -391,9 +391,13 @@ export const getResourceStatuses = (resource) => {
     const isCopied = deleteProcess?.output?.status === ProcessStatus.FINISHED;
     const isApproved = resource?.is_approved;
     const isPublished = isApproved && resource?.is_published;
+    const isUploadRejected = resource?.is_upload_rejected;
+    const isPublishRejected = resource?.is_publish_rejected;
     return {
         isApproved,
         isPublished,
+        isUploadRejected,
+        isPublishRejected,
         isProcessing,
         isDeleting,
         isDeleted,
