@@ -1485,7 +1485,7 @@
             "errors": {
                 "loading": {
                     "unknownError": "Terjadi kesalahan saat memuat permalink",
-                    "permalinkNotAccessible": "Anda tidak memiliki izin untuk mengakses permalink ini. Silakan hubungi pemilik sumber daya",
+                    "permalinkNotAccessible": "Anda tidak memiliki izin untuk mengakses permalink ini. Silakan hubungi pemilik sumber",
                     "permalinkDoesNotExist": "Permalink yang Anda coba akses tidak ada",
                     "title": "Kesalahan memuat permalink",
                     "pleaseLogin": "Permalink ini tidak publik. Silakan coba masuk",
