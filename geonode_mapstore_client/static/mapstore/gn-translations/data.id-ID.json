@@ -276,7 +276,7 @@
             "syncWarningMessage": "Proses sinkronisasi memperbarui sumber berikut: {successTitles}. Tidak dapat memperbarui sumber berikut: {errorTitles}. Ini mungkin karena sumber telah dihapus dari database",
             "applyStyle": "Terapkan",
             "resourceOrigin": {
-                "a": "a",
+                "a": "Satu",
                 "from": "dari"
             },
             "styleEditorCloseTitle": "Perubahan yang tertunda",
