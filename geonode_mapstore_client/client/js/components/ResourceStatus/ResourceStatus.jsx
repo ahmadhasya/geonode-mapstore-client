@@ -33,18 +33,18 @@ const ResourceStatus = ({ resource = {} }) => {
         const { isApproved: approved, isPublished: published, isApprovalRequested: approval_requested, isUploadRejected: upload_rejected, isPublishRejected: publish_rejected } = status;
 
         if (approval_requested) {
-            return <span className="gn-resource-status" style="background-color: #E65100; color: white;">Need Approval</span>;
+            return <span className="gn-resource-status" style={{backgroundColor: "#FB8C00", color:"white"}}><Message msgId="bhumi.need_approval" /></span>;
         }else if(upload_rejected){
-            return <span className="gn-resource-status gn-resource-status-danger">Upload Rejected</span>;
+            return <span className="gn-resource-status gn-resource-status-danger"><Message msgId="bhumi.upload_rejected" /></span>;
         }else if(publish_rejected){
-            return <span className="gn-resource-status gn-resource-status-danger">Publish Rejected</span>;
+            return <span className="gn-resource-status gn-resource-status-danger"><Message msgId="bhumi.publish_rejected" /></span>;
         }else if (approved && !published) {
-            return <span className="gn-resource-status gn-resource-status-success">Approved</span>;
+            return <span className="gn-resource-status gn-resource-status-success"><Message msgId="bhumi.approved" /></span>;
         }else if (approved && published) {
-            return <span className="gn-resource-status gn-resource-status-success">Published</span>;
+            return <span className="gn-resource-status gn-resource-status-success"><Message msgId="bhumi.published" /></span>;
         }
 
-        return <span className="gn-resource-status" style="background-color: #03A9F4; color:white;">Uploaded</span>;
+        return <span className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}}><Message msgId="bhumi.uploaded" /></span>;
     };
 
     return !isEmpty(resource)

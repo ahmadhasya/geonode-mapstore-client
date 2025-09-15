@@ -53,6 +53,18 @@ function ActionButtons({
                             </Dropdown.Item>
                         );
                     })}
+                    <Dropdown.Item
+                        href={"/bhumi/approval/resource/"+resource.pk}
+                    >
+                        <FaIcon name="upload" />{' '}
+                        <Message msgId="bhumi.upload_approval" />
+                    </Dropdown.Item>
+                    {resource.category?.identifier == "publishBhumi" && (<Dropdown.Item
+                        href={"/bhumi/publish/resource/"+resource.pk}
+                    >
+                        <FaIcon name="globe" />{' '}
+                        <Message msgId="bhumi.publish_approval" />
+                    </Dropdown.Item>)}
                 </Dropdown.Menu>
             </Dropdown>
         </div>

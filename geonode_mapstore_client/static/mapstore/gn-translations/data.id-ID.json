@@ -1,6 +1,16 @@
 {
     "locale": "id-ID",
     "messages": {
+        "bhumi": {
+            "need_approval": "",
+            "publish_approval": "Persetujuan Publish",
+            "upload_approval": "Persetujuan Upload",
+            "upload_rejected": "Upload Ditolak",
+            "publish_rejected": "Publish Ditolak",
+            "approved": "Disetujui",
+            "published": "Dipublish",
+            "uploaded": "Diupload"
+        },
         "geostory": {
             "geoNode": "GeoNode"
         },

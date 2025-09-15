@@ -1,6 +1,16 @@
 {
     "locale": "en-US",
     "messages": {
+        "bhumi": {
+            "need_approval": "Need Approval",
+            "publish_approval": "Publish Approval",
+            "upload_approval": "Upload Approval",
+            "upload_rejected": "Upload Rejected",
+            "publish_rejected": "Publish Rejected",
+            "approved": "Approved",
+            "published": "Published",
+            "uploaded": "Uploaded"
+        },
         "geostory": {
             "geoNode": "GeoNode"
         },
