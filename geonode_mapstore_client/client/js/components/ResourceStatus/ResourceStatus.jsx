@@ -20,6 +20,7 @@ const ResourceStatus = ({ resource = {} }) => {
     const {
         isApproved,
         isPublished,
+        isApprovalRequested,
         isUploadRejected,
         isPublishRejected,
         isProcessing,
@@ -29,21 +30,21 @@ const ResourceStatus = ({ resource = {} }) => {
     } = getResourceStatuses(resource);
 
     const getTitle = (status) => {
-        const { isApproved: approved, isPublished: published, isUploadRejected: upload_rejected, isPublishRejected: publish_rejected } = status;
+        const { isApproved: approved, isPublished: published, isApprovalRequested: approval_requested, isUploadRejected: upload_rejected, isPublishRejected: publish_rejected } = status;
 
-        if(upload_rejected){
+        if (approval_requested) {
+            return <span className="gn-resource-status" style="background-color: #E65100; color: white;">Need Approval</span>;
+        }else if(upload_rejected){
             return <span className="gn-resource-status gn-resource-status-danger">Upload Rejected</span>;
         }else if(publish_rejected){
             return <span className="gn-resource-status gn-resource-status-danger">Publish Rejected</span>;
-        }else if (!approved && !published) {
-            return <span className="gn-resource-status gn-resource-status-warning">Need Approval</span>;
         }else if (approved && !published) {
             return <span className="gn-resource-status gn-resource-status-success">Approved</span>;
         }else if (approved && published) {
             return <span className="gn-resource-status gn-resource-status-success">Published</span>;
         }
 
-        return '';
+        return <span className="gn-resource-status" style="background-color: #03A9F4; color:white;">Uploaded</span>;
     };
 
     return !isEmpty(resource)
@@ -51,7 +52,7 @@ const ResourceStatus = ({ resource = {} }) => {
             <p className="gn-resource-status-text">
                 {
                     (!isProcessing) &&
-                        getTitle({ isApproved, isPublished, isUploadRejected, isPublishRejected })
+                        getTitle({ isApproved, isPublished, isApprovalRequested, isUploadRejected, isPublishRejected })
                 }
                 {isDeleting && <span className="gn-resource-status gn-resource-status-danger" >
                     <Message msgId="gnviewer.deleting" />

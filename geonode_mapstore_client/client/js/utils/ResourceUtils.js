@@ -393,9 +393,11 @@ export const getResourceStatuses = (resource) => {
     const isPublished = isApproved && resource?.is_published;
     const isUploadRejected = resource?.is_upload_rejected;
     const isPublishRejected = resource?.is_publish_rejected;
+    const isApprovalRequested = resource?.is_approval_requested;
     return {
         isApproved,
         isPublished,
+        isApprovalRequested,
         isUploadRejected,
         isPublishRejected,
         isProcessing,
