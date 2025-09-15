@@ -2,7 +2,7 @@
     "locale": "id-ID",
     "messages": {
         "bhumi": {
-            "need_approval": "",
+            "need_approval": "Perlu Persetujuan",
             "publish_approval": "Persetujuan Publish",
             "upload_approval": "Persetujuan Upload",
             "upload_rejected": "Upload Ditolak",
