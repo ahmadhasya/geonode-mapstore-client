@@ -21,7 +21,7 @@ function ActionButtons({
     const dropdownClassName = 'gn-card-dropdown';
     const dropdownNode = containerNode?.current?.querySelector(`.${dropdownClassName}`);
     const isDropdownEmpty = (dropdownNode?.children?.length || 0) === 0;
-
+    
     return (
         <div
             ref={containerNode}
@@ -38,6 +38,12 @@ function ActionButtons({
                     <FaIcon name="ellipsis-v" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu className={dropdownClassName}>
+                    {resource.perms.includes("change_resourcebase_metadata") && !resource.perms.includes("delete_resourcebase") && (<Dropdown.Item
+                        href={"/bhumi/delete/resource/"+resource.pk}
+                    >
+                        <FaIcon name="trash" />{' '}
+                        <Message msgId="gnhome.delete" />
+                    </Dropdown.Item>)}
                     {options.map((opt) => {
                         if (opt.type === 'plugin') {
                             const { Component } = opt;
