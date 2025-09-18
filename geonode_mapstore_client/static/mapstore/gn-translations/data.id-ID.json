@@ -9,7 +9,8 @@
             "publish_rejected": "Publish Ditolak",
             "approved": "Disetujui",
             "published": "Dipublish",
-            "uploaded": "Diupload"
+            "uploaded": "Diupload",
+            "view_detail_supported_files": "Lihat detail file yang didukung"
         },
         "geostory": {
             "geoNode": "GeoNode"

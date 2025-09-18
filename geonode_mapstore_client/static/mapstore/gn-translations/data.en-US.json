@@ -9,7 +9,8 @@
             "publish_rejected": "Publish Rejected",
             "approved": "Approved",
             "published": "Published",
-            "uploaded": "Uploaded"
+            "uploaded": "Uploaded",
+            "view_detail_supported_files": "View detail supported files"
         },
         "geostory": {
             "geoNode": "GeoNode"

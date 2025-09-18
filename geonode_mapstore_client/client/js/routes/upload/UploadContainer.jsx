@@ -207,7 +207,10 @@ function UploadContainer({
                                     textAlign: 'center'
                                 }}
                             >
-                                <div><Message msgId="gnviewer.supportedFiles" />: {supportedLabels}</div>
+                                <div><Message msgId="gnviewer.supportedFiles" />: 
+                                    {supportedLabels}
+                                    <br></br><a href="/bhumi/supported_files" target="_blank"><Message msgId="bhumi.view_detail_supported_files" /></a>
+                                </div>
                             </div>
                         )}
                         <div className="gn-upload-list-footer">
