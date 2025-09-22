@@ -10,7 +10,8 @@
             "approved": "Approved",
             "published": "Published",
             "uploaded": "Uploaded",
-            "view_detail_supported_files": "View detail supported files"
+            "view_detail_supported_files": "View detail supported files",
+            "see_approval": "See approval"
         },
         "geostory": {
             "geoNode": "GeoNode"

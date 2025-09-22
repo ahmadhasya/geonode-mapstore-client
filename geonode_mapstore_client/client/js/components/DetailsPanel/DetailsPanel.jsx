@@ -285,8 +285,14 @@ function DetailsPanel({
                             && <>{' '}/{' '}{moment(resource.date).format('MMMM Do YYYY')}</>}
                         </p>
                         }
+                        {
+                            <div style={{paddingTop: "5px"}}>
+                                <a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/approval/resource/"+resource.pk}><Message msgId="bhumi.upload_approval" /></a>
+                                {resource.category?.identifier == "publishBhumi" &&<a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/publish/resource/"+resource.pk}><Message msgId="bhumi.publish_approval" /></a>}
+                            </div>
+                        }
                         {resource?.abstract
-                            ? <div className="gn-details-text">
+                            ? <div className="gn-details-text" style={{paddingTop: "0px"}}>
                                 <span className="gn-details-text-body" dangerouslySetInnerHTML={{ __html: resource.abstract }} />
                             </div>
                             : null}

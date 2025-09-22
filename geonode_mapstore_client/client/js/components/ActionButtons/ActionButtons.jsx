@@ -59,7 +59,7 @@ function ActionButtons({
                             </Dropdown.Item>
                         );
                     })}
-                    <Dropdown.Item
+                    {/* <Dropdown.Item
                         href={"/bhumi/approval/resource/"+resource.pk}
                     >
                         <FaIcon name="upload" />{' '}
@@ -70,7 +70,7 @@ function ActionButtons({
                     >
                         <FaIcon name="globe" />{' '}
                         <Message msgId="bhumi.publish_approval" />
-                    </Dropdown.Item>)}
+                    </Dropdown.Item>)} */}
                 </Dropdown.Menu>
             </Dropdown>
         </div>
