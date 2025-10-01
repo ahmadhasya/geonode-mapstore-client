@@ -46,10 +46,28 @@ const ResourceStatus = ({ resource = {} }) => {
 
         return <span className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}}><Message msgId="bhumi.uploaded" /></span>;
     };
+    
+    var source_type = resource.sourcetype;
+    var source_type_color = "#737373";
+
+    for(const link of resource.links){
+        if(link.extras) {
+            source_type = link.extras.content.type.toUpperCase();
+        }
+    }
+
+    switch(source_type){
+        case "GEOJSON": source_type_color = "#FFC107"; break;
+        case "TIFF": source_type_color = "#FF9800"; break;
+        case "SHP": source_type_color = "#2196F3"; break;
+        case "REMOTE": source_type_color = "#9C27B0"; break;
+        case "CSV": source_type_color = "#4CAF50"; break;
+    }
 
     return !isEmpty(resource)
         ? (
             <p className="gn-resource-status-text">
+                <span className="gn-resource-status" style={{backgroundColor: source_type_color, color: "white"}}>{source_type}</span>
                 {
                     (!isProcessing) &&
                         getTitle({ isApproved, isPublished, isApprovalRequested, isUploadRejected, isPublishRejected })
