@@ -207,8 +207,8 @@ function UploadContainer({
                                     textAlign: 'center'
                                 }}
                             >
-                                <div><Message msgId="gnviewer.supportedFiles" />: 
-                                    {supportedLabels}
+                                <div><Message msgId="gnviewer.supportedFiles" />:&nbsp;
+                                    <span>ESRI Shapefile, CSV, GeoPackage, GeoJSON, 3DTiles, GeoTIFF</span>
                                     <br></br><a href="/bhumi/supported_files" target="_blank"><Message msgId="bhumi.view_detail_supported_files" /></a>
                                 </div>
                             </div>

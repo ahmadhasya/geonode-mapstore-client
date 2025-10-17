@@ -200,6 +200,14 @@ function DeleteMenuItem({
     authenticated,
     onDelete
 }) {
+    if(authenticated && (resource?.perms?.includes("change_resourcebase_metadata") && !(resource?.perms?.includes("delete_resourcebase")))){
+        return (<Dropdown.Item
+                    href={"/bhumi/delete/resource/"+resource.pk}
+                >
+                    <FaIcon name="trash" />{' '}
+                    <Message msgId="gnhome.delete" />
+                </Dropdown.Item>)
+    }
 
     if (!(authenticated && resource?.perms?.includes('delete_resourcebase'))) {
         return null;
