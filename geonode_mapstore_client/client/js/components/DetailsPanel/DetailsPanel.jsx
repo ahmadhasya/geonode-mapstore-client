@@ -225,6 +225,17 @@ function DetailsPanel({
             toolbarItems={toolbarItems}
         />
     );
+    var bhumi_dataset_buttons = (<div></div>)
+    if(resource.resource_type=="dataset"){
+        bhumi_dataset_buttons = (
+                <div style={{paddingTop: "5px"}}>
+                    <a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/approval/resource/"+resource.pk}><Message msgId="bhumi.upload_approval" /></a>
+                    {resource.category?.identifier == "publishBhumi" &&<a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/publish/resource/"+resource.pk}><Message msgId="bhumi.publish_approval" /></a>}
+                    <a className="gn-resource-status" style={{backgroundColor: "#e3272a", color:"white"}} href={"/bhumi/insert_oracle/resource/"+resource.pk}>Oracle</a>
+                </div>
+            )
+    }
+    
     return (
         <div
             ref={detailsContainerNode}
@@ -286,11 +297,7 @@ function DetailsPanel({
                         </p>
                         }
                         {
-                            <div style={{paddingTop: "5px"}}>
-                                <a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/approval/resource/"+resource.pk}><Message msgId="bhumi.upload_approval" /></a>
-                                {resource.category?.identifier == "publishBhumi" &&<a className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}} href={"/bhumi/publish/resource/"+resource.pk}><Message msgId="bhumi.publish_approval" /></a>}
-                                <a className="gn-resource-status" style={{backgroundColor: "#e3272a", color:"white"}} href={"/bhumi/insert_oracle/resource/"+resource.pk}>Oracle</a>
-                            </div>
+                            bhumi_dataset_buttons
                         }
                         {resource?.abstract
                             ? <div className="gn-details-text" style={{paddingTop: "0px"}}>

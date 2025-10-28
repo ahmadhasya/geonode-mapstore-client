@@ -114,6 +114,16 @@ function UploadContainer({
 
     const unsupportedLabels = (unsupported || []).map(({ file, url } = {}) => (file?.name || url?.name)).join(', ');
 
+    var bhumi_upload_information = (
+        <div>
+            <span>ESRI Shapefile, CSV, GeoPackage, GeoJSON, 3DTiles, GeoTIFF</span>
+            <br></br><a href="/bhumi/supported_files" target="_blank"><Message msgId="bhumi.view_detail_supported_files" /></a>
+        </div>
+    )
+    if(type != "dataset"){
+        bhumi_upload_information = supportedLabels;
+    }
+
     return (
         <Dropzone
             multiple
@@ -208,8 +218,7 @@ function UploadContainer({
                                 }}
                             >
                                 <div><Message msgId="gnviewer.supportedFiles" />:&nbsp;
-                                    <span>ESRI Shapefile, CSV, GeoPackage, GeoJSON, 3DTiles, GeoTIFF</span>
-                                    <br></br><a href="/bhumi/supported_files" target="_blank"><Message msgId="bhumi.view_detail_supported_files" /></a>
+                                    {bhumi_upload_information}
                                 </div>
                             </div>
                         )}

@@ -53,6 +53,8 @@ const ResourceStatus = ({ resource = {} }) => {
     for(const link of resource.links){
         if(link.extras) {
             source_type = link.extras.content.type.toUpperCase();
+            source_type = source_type == "UNKNOWN" ? link.extension.toUpperCase() : source_type;
+            break;
         }
     }
 
@@ -62,6 +64,9 @@ const ResourceStatus = ({ resource = {} }) => {
         case "SHP": source_type_color = "#2196F3"; break;
         case "REMOTE": source_type_color = "#9C27B0"; break;
         case "CSV": source_type_color = "#4CAF50"; break;
+        case "PDF": source_type_color = "#e02222ff"; break;
+        case "PNG": source_type_color = "#22d6e0ff"; break;
+        case "JPEG": source_type_color = "#228ae0ff"; break;
     }
 
     return !isEmpty(resource)
