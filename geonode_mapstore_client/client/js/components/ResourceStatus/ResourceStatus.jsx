@@ -47,16 +47,8 @@ const ResourceStatus = ({ resource = {} }) => {
         return <span className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}}><Message msgId="bhumi.uploaded" /></span>;
     };
     
-    var source_type = resource.sourcetype;
+    var source_type = resource.source_extension;
     var source_type_color = "#737373";
-
-    for(const link of resource.links){
-        if(link.extras) {
-            source_type = link.extras.content.type.toUpperCase();
-            source_type = source_type == "UNKNOWN" ? link.extension.toUpperCase() : source_type;
-            break;
-        }
-    }
 
     switch(source_type){
         case "GEOJSON": source_type_color = "#FFC107"; break;
