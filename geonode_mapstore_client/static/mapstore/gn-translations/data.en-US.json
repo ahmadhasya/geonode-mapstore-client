@@ -2,6 +2,7 @@
     "locale": "en-US",
     "messages": {
         "bhumi": {
+            "no_group": "No group",
             "need_approval": "Need Approval",
             "publish_approval": "Publish Approval",
             "upload_approval": "Upload Approval",

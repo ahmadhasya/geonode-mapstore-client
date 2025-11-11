@@ -68,6 +68,8 @@ const ResourceCard = forwardRef(({
         return isOverflowing ? <span className="ellipsis">...</span> : null;
     };
 
+    var group_title = res.group_title ?? (<Message msgId="bhumi.no_group" />);
+
     return (
         <div
             ref={ref}
@@ -149,6 +151,7 @@ const ResourceCard = forwardRef(({
                         <p ref={abstractRef} className={`card-text gn-card-description ${layoutCardsStyle}`}>
                             {res.raw_abstract ? res.raw_abstract : '...'}
                         </p>
+                        <p className={`card-text gn-card-description ${layoutCardsStyle}`}>{group_title}</p>
                         {renderEllipsis()}
                         {!readOnly &&
                             options &&

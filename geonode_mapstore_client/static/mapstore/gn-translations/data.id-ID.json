@@ -2,6 +2,7 @@
   "locale": "id-ID",
   "messages": {
     "bhumi": {
+      "no_group": "Tidak ada grup",
       "need_approval": "Perlu Persetujuan",
       "publish_approval": "Persetujuan Publish",
       "upload_approval": "Persetujuan Upload",
