@@ -39,9 +39,9 @@ const ResourceStatus = ({ resource = {} }) => {
         }else if(publish_rejected){
             return <span className="gn-resource-status gn-resource-status-danger"><Message msgId="bhumi.publish_rejected" /></span>;
         }else if (approved && !published) {
-            return <span className="gn-resource-status gn-resource-status-success"><Message msgId="bhumi.approved" /></span>;
+            return <span className="gn-resource-status" style={{backgroundColor: "#229e2eff", color:"white"}}><Message msgId="bhumi.approved" /></span>;
         }else if (approved && published) {
-            return <span className="gn-resource-status gn-resource-status-success"><Message msgId="bhumi.published" /></span>;
+            return <span className="gn-resource-status" style={{backgroundColor: "#2ea387", color:"white"}}><Message msgId="bhumi.published" /></span>;
         }
 
         return <span className="gn-resource-status" style={{backgroundColor: "#03A9F4", color:"white"}}><Message msgId="bhumi.uploaded" /></span>;
